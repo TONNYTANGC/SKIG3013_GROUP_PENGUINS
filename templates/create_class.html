@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main id="main">
+
+    <div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+                
+                    <div class="profile-prehead" style="margin-top: -25px;">
+                        <div class="col-md-2">
+                            <div class="profile-img">
+                                <img src="static/img/avatar-1.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-head">
+                                <h5>
+                                    <strong>{{session.email}}</strong>
+                                </h5>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#"
+                                            onclick="showContent('profil')" role="tab" aria-controls="profile"
+                                            aria-selected="false">Pilih nama pengguna</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#"
+                                            onclick="showContent('profil')" role="tab" aria-controls="profile"
+                                            aria-selected="false">Tambahkan biodata Anda</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="profile-edit-btn" name="btnAddMore"
+                                onclick="location.href='/logout'">Logout</button>
+                        </div>
+                        <section class="badges-section">
+                            <div class="badge"><i class="bi bi-trophy"></i>
+                                <span class="badge-count">3</span>
+                            </div>
+                            <div class="badge"><i class="bi bi-star"></i>
+                                <span class="badge-count">0</span>
+                            </div>
+                            <div class="badge"><i class="bi bi-lightning"></i>
+                                <span class="badge-count">0</span>
+                            </div>
+                        </section>
+                    </div>
+
+                    
+                        <!-- Modal content for creating a class -->
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="createClassModalLabel">Create a New Class</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Your form for creating a class -->
+                            <form method="post" action="{{ url_for('create_class') }}">
+                                <label for="class_name">Class Name:</label>
+                                <input type="text" id="class_name" name="class_name" required>
+        
+                                <label for="selected_students">Select Students:</label>
+                                <select id="selected_students" name="selected_students" multiple>
+                                    <!-- Display a list of students from which the teacher can select -->
+                                    {% for user in users %}
+                                        <option value="{{ user.id }}">{{ user.username }}</option>
+                                    {% endfor %}
+                                </select>
+        
+                                <button type="submit">Create Class</button>
+                            </form>
+                        </div>
+                        <!-- End of modal content -->
+                    
+                
+
+        </form>
+    </div>
+
+</main><!-- End #main -->
+
+{% endblock %}

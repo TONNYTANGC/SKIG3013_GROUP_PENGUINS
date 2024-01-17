@@ -1,0 +1,30 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+<section class="main">
+    <div class="main-top">
+        <h1>Progress List</h1>
+        <i class="fas fa-user-cog"></i>
+    </div>
+    <div class="users">
+        {% for user in users %}
+        {% if user.role == 'user' %}
+        <div class="card">
+            <img src="static/img/avatar-1.png">
+            <h4>{{ user.username }}</h4>
+            <p>ID: {{ user.id }}</p>
+            <table>
+                <tr>
+                    <td><span>{{ user.progress1 }} %</span></td>
+                    <td><span>{{ user.progress2 }} %</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Topic 1</strong></td>
+                    <td><strong>Topic 3</strong></td>
+                </tr>
+            </table>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

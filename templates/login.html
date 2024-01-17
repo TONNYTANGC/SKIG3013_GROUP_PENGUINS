@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main id="main">
+
+  <!-- ======= Login Section ======= -->
+  <section class="h-100 gradient-form"
+    style="background: linear-gradient(to right, #3498db, #5dade2, #48c9b0, #2c3e50)">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+
+                  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
+                  <div class="google-btn">
+                    <div class="google-icon-wrapper">
+                      <img class="google-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" />
+                    </div>
+                    <p class="btn-text"><b>Log masuk dengan Google</b></p>
+                  </div>
+
+                  <div class="facebook-btn">
+                    <div class="facebook-icon-wrapper">
+                      <img class="facebook-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" />
+                    </div>
+                    <p class="btn-text"><b>Log masuk dengan Facebook</b></p>
+                  </div>
+
+                  <div class="apple-btn">
+                    <div class="apple-icon-wrapper">
+                      <img class="apple-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" />
+                    </div>
+                    <p class="btn-text"><b>Log masuk dengan Apple</b></p>
+                  </div>
+
+                  <BR>
+
+                  <form method="POST" action="/login">
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example11">Nama pengguna Atau E-mel</label>
+                      <input type="text" id="form2Example11" name="email_or_username" class="form-control"
+                        placeholder="Nama pengguna atau E-mel" />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example22">Kata laluan</label>
+                      <input type="password" id="form2Example22" name="password" class="form-control" />
+                    </div>
+
+                    <div class="text-center pt-1 mb-5 pb-1 gradient-custom">
+                      <button class="btn btn-primary btn-block fa-lg custom-btn mb-3" type="submit">Log masuk</button>
+                      <a class="text-muted" href="#!">Lupa Kata Laluan?</a>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center pb-4 gradient-custom-1">
+                      <p class="mb-0 me-2">Baru di Silent Math?</p>
+                      <a href="/signup" class="btn btn-outline-danger w-50 custom-btn">Daftar pengguna baharu</a>
+                    </div>
+
+                  </form>
+
+                  <!-- Display the flash message -->
+                  {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                  <div class="alert alert-danger" role="alert">
+                    {% for category, message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                  {% endwith %}
+
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4"><strong>Log In</strong></h4>
+                  <h4 class="mb-4">Good to see you again!</h4>
+                  <p class="small mb-0">By logging into Silent Math, you agree to our Terms of use and Privacy Policy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</main><!-- End #main -->
+
+{% endblock %}

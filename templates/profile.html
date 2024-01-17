@@ -1,0 +1,447 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main id="main">
+
+    <div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+                <div class="profile-prehead" style="margin-top: -25px;">
+                    <div class="col-md-2">
+                        <div class="profile-img">
+                            <img src="static/img/avatar-1.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <h5>
+                                <strong>{{session.username}}</strong>
+                            </h5>
+
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#"
+                                        onclick="showContentUser('profil')" role="tab" aria-controls="profile"
+                                        aria-selected="false">Pilih nama pengguna</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#"
+                                        onclick="showContentUser('profil')" role="tab" aria-controls="profile"
+                                        aria-selected="false">Tambahkan biodata Anda</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="profile-edit-btn" name="btnAddMore"
+                            onclick="location.href='/logout'">Logout</button>
+                    </div>
+                    <section class="badges-section">
+                        <div class="badge"><i class="bi bi-trophy"></i>
+                            <span class="badge-count">3</span>
+                        </div>
+                        <div class="badge"><i class="bi bi-star"></i>
+                            <span class="badge-count">0</span>
+                        </div>
+                        <div class="badge"><i class="bi bi-lightning"></i>
+                            <span class="badge-count">0</span>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="profile-work">
+                            <p>AKAUN SAYA</p>
+                            <ul>
+                                <li><a href="#" onclick="showContentUser('progres')">Progres</a></li>
+                                <li><a href="#" onclick="showContentUser('profil')">Profil</a></li>
+                                <li><a href="#" onclick="showContentUser('guru')">Guru</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Area -->
+                    <div class="col-md-10 profile-content">
+                        <div id="progres-content" style="display: block;">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h2>Kursus Saya</h2>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <a href="#" class="progres-edit-button" data-toggle="modal"
+                                        data-target="#myModal">Edit</a>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Add Course Section -->
+                                <div class="col-md-5 add-course-section" id="addCourseSection">
+                                    <div class="text-center">
+                                        <span class="add-course-icon" data-toggle="modal" data-target="#myModal">
+                                            <div class="plus">+</div>
+                                            <div class="circle"></div>
+                                        </span>
+                                        <h3>Tambah Kursus Baharu</h3>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Time Container -->
+                                <div class="col-md-5 time-content" id="additionalTimeContainer">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h2>Cara Membaca Jam dan Mengejanya</h2>
+                                        </div>
+                                        <div class="col-md-6" style="text-align: right; margin-top: 17px;">
+                                            <a href="course-1" class="content-view-button">See all</a>
+                                        </div>
+                                    </div>
+                                    <progress-meter>
+                                        <progress-percent style="--progress: {{session.progress1}}"></progress-percent>
+                                    </progress-meter>
+                                    <hr style="border-color: #252627; margin: 10px 0;">
+                                    <div class="course-item-list">
+                                        <ul id="lessonList">
+                                            <li data-lesson-id="1">
+                                                <img src="static/img/icons/lesson-1-1.png" alt="Icon 1"> Kenali Jam &
+                                                Masa
+                                                <input type="checkbox" class="lesson-checkbox" id="checkbox1">
+                                            </li>
+                                            <li data-lesson-id="1">
+                                                <img src="static/img/icons/lesson-1-2.png" alt="Icon 2"> Jam Digital
+                                                <input type="checkbox" class="lesson-checkbox" id="checkbox2">
+                                            </li>
+                                            <li data-lesson-id="1">
+                                                <img src="static/img/icons/lesson-1-3.png" alt="Icon 3"> Pengiraan Waktu
+                                                <input type="checkbox" class="lesson-checkbox" id="checkbox3">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Additional Wang Container -->
+                                <div class="col-md-5 wang-content" id="additionalWangContainer">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h2>Penggunaan Wang</h2>
+                                        </div>
+                                        <div class="col-md-6" style="text-align: right; margin-top: 17px;">
+                                            <a href="course-2" class="content-view-button">See all</a>
+                                        </div>
+                                    </div>
+                                    <progress-meter>
+                                        <progress-percent style="--progress: {{session.progress2}}"></progress-percent>
+                                    </progress-meter>
+                                    <hr style="border-color: #252627; margin: 10px 0;">
+                                    <div class="course-item-list">
+                                        <ul id="lessonList">
+                                            <li data-lesson-id="2">
+                                                <img src="static/img/icons/lesson-2-1.png" alt="Icon 1"> Koin Malaysia
+                                                <input type="checkbox" class="lesson-checkbox" id="checkbox4">
+                                            </li>
+                                            <li data-lesson-id="2">
+                                                <img src="static/img/icons/lesson-2-2.png" alt="Icon 2"> Duit Kertas
+                                                Malaysia
+                                                <input type="checkbox" class="lesson-checkbox" id="checkbox5">
+                                            </li>
+                                            <li data-lesson-id="2">
+                                                <img src="static/img/icons/lesson-2-3.png" alt="Icon 3"> Pengiraan
+                                                Antara Koin & Duit Kertas
+                                                <input type="checkbox" class="lesson-checkbox" id="checkbox6">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title"><strong>Personalize Silent Math</strong></h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <img src="static/img/course-edit-bg.png" alt="Personalization Image"
+                                                class="img-fluid course-edit-bg">
+                                            <p>Math</p>
+                                            <hr style="border-color: #252627; margin: 10px 0;">
+                                            <div class="checkbox-list">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" id="MembacaJam" checked> Cara Membaca Jam
+                                                        dan
+                                                        Mengejanya
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Pengukuran Asas
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" id="penggunaanWang" checked> Penggunaan
+                                                        Wang
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Bahagi dan Darab
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Nilai Tempat Perpuluhan
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Matematik Pengguna
+                                                    </label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Pemfaktoran dan Algebra
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default custom-width-btn"
+                                                data-dismiss="modal"
+                                                onclick="showAdditionalContent()">Selanjutnya</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- profil -->
+                        <div id="profil-content" style="display: none;">
+                            <div class="col-md-9">
+                                <h2>Profil Saya</h2>
+                                <div class="container">
+                                    <div class="main-body">
+
+                                        <div class="row gutters-sm">
+
+                                            <div class="col-md-8">
+                                                <div class="card mb-3">
+                                                    <div class="card-body" id="profil-content">
+                                                        <h2>Maklumat Asas</h2>
+                                                        {% with messages = get_flashed_messages(with_categories=true) %}
+                                                        {% if messages %}
+                                                        <div class="flash-messages">
+                                                            {% for category, message in messages %}
+                                                            <div class="alert alert-{{ category }}">
+                                                                {{ message }}
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                        {% endif %}
+                                                        {% endwith %}
+
+                                                        <form id="profileForm" method="POST" action="/profile">
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <h6 class="mb-0">Nama Pengguna</h6>
+                                                                </div>
+                                                                <div class="col-sm-9 text-secondary">
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="fullName" value="{{ session.username }} "
+                                                                        readonly>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <h6 class="mb-0">Email</h6>
+                                                                </div>
+                                                                <div class="col-sm-9 text-secondary">
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="email" value="{{ session.email }}" readonly>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <h6 class="mb-0">Sesi Semasa </h6>
+                                                                </div>
+                                                                <div class="col-sm-9 text-secondary">
+                                                                    {% if session.year == 'year1' %}
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="year" value="Tahun 1" readonly>
+                                                                    {% elif session.year|trim == 'year2' %}
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="year" value="Tahun 2" readonly>
+                                                                    {% elif session.year == 'year3' %}
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="year" value="Tahun 3" readonly>
+                                                                    {% else %}
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="year" value="Undefined Year" readonly>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <h6 class="mb-0">Phone</h6>
+                                                                </div>
+                                                                <div class="col-sm-9 text-secondary">
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="phone" name="phone"
+                                                                        value="{{session.phone}}"
+                                                                        placeholder="Enter Phone Number">
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <h6 class="mb-0">Bio</h6>
+                                                                </div>
+                                                                <div class="col-sm-9 text-secondary">
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="bio" value="{{session.bio}}" name="bio"
+                                                                        placeholder="Enter Bio">
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-3">
+                                                                    <h6 class="mb-0">Address</h6>
+                                                                </div>
+                                                                <div class="col-sm-9 text-secondary">
+                                                                    <input type="text" style="border: none; padding: 0;"
+                                                                        id="address" value="{{session.address}}"
+                                                                        name="address" placeholder="Enter Address">
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <button type="submit" class="btn btn-info"
+                                                                        onclick="showContentUser('profil')">Edit</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row gutters-sm">
+                                                    <div class="col-sm-6 mb-3">
+                                                        <div class="card h-100">
+                                                            <div class="card-body">
+                                                                <h2>Showcase</h2>
+                                                                <section class="col-mb-5 adges-section">
+                                                                    <div class="badge"><i class="bi bi-trophy"></i>
+                                                                        <span class="badge-count">3</span>
+                                                                    </div>
+                                                                    <div class="badge"><i class="bi bi-star"></i>
+                                                                        <span class="badge-count">0</span>
+                                                                    </div>
+                                                                    <div class="badge"><i class="bi bi-lightning"></i>
+                                                                        <span class="badge-count">0</span>
+                                                                    </div>
+                                                                </section>
+                                                                <h2>User Statistic</h2>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <h6 class="mb-0">Tarikh </h6>
+                                                                    </div>
+                                                                    <div class="col-sm-4 text-secondary">
+                                                                        12/3/2022
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <h6 class="mb-0">Kursus yang diselesaikan</h6>
+                                                                    </div>
+                                                                    <div class="col-sm-4 text-secondary">
+                                                                        0
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 mb-3">
+                                                        <div class="card h-100">
+                                                            <div class="card-body">
+                                                                <h2>Diskusi</h2>
+                                                                <h6>Pengguna ini belum memulai diskusi.</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="guru-content" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h2>Guru dan Tutor Saya</h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h6>Guru memiliki akses ke semua data Khan Academy Anda.</h6>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <h6>ID STUDENT: {{ session.user_id }}</h6>
+                                </div>
+                                <hr style="border-color: #252627; margin: 10px 0;">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h2>Ikuti kelas</h2>
+                                    <a href="#" class="progres-edit-button" data-toggle="modal"
+                                        data-target="#myModal">Masukkan kode kelas</a>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <h2>Guru Anda</h2>
+                                    <br>
+                                    <h6>Anda tidak mempunyai tutor! Mengapa tidak cuba menambah tutor?</h6>
+                                </div>
+                                <hr style="border-color: #252627; margin: 10px 0;">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h2>Tambahkah Guru</h2>
+                                    <h6>Masukkan email guru Anda:</h6>
+                                    <form id="teacherForm">
+                                        <input type="text" id="teacherEmail" placeholder="Email Guru" required>
+                                        <a href="#" class="progres-edit-button" data-toggle="modal"
+                                            data-target="#myModal">Tambahkan</a>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        </form>
+    </div>
+
+</main><!-- End #main -->
+
+{% endblock %}

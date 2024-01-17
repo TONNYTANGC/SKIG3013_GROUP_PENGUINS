@@ -1,0 +1,50 @@
+<span style="font-family: verdana, geneva, sans-serif;">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Teacher Dashboard</title>
+        <link rel="stylesheet" href="static/css/style2.css" />
+        <link href="static/img/online-education.png" rel="icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="/teacher_dashboard" class="logo">
+                            <img src="static/img/stats.png">
+                            <span class="nav-item">Teacher</span>
+                        </a></li>
+                    <li><a href="/teacher_dashboard">
+                            <i class="fas fa-menorah"></i>
+                            <span class="nav-item">Dashboard</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-comment"></i>
+                            <span class="nav-item">Message</span>
+                        </a></li>
+                    <li><a href="/teacher_profile">
+                            <i class="fas fa-user"></i>
+                            <span class="nav-item">Profile</span>
+                        </a></li>
+                    <li><a href="/teacher_progress">
+                            <i class="fas fa-tasks "></i>
+                            <span class="nav-item">Progress</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span class="nav-item">Setting</span>
+                        </a></li>
+
+                    <li><a class="logout" onclick="location.href='/logout'">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="nav-item">Log out</span>
+                        </a></li>
+                </ul>
+            </nav>
+
+            {% block content %}
+            {% endblock %}

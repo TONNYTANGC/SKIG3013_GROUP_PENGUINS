@@ -1,0 +1,59 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+
+
+<section class="main">
+    <div class="main-top">
+        <h1>Silent Math Genius</h1>
+        <i class="fas fa-user-cog"></i>
+    </div>
+                                            
+
+    <section class="attendance">
+        <div class="attendance-list">
+            <h1>Progress List</h1>
+            <table class="table">
+                <thead>
+                    <tr>                                                                                          
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Quiz 1-1</th>
+                        <th>Quiz 1-2</th>
+                        <th>Quiz 1-3</th>
+                        <th>Quiz 3-1</th>
+                        <th>Quiz 3-2</th>
+                        <th>Quiz 3-3</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    {% if user.role == 'user' %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.year }}</td>
+                        <td>{{ user.quiz1 }}%</td>
+                        <td>{{ user.quiz2 }}%</td>
+                        <td>{{ user.quiz3 }}%</td>
+                        <td>{{ user.quiz4 }}%</td>
+                        <td>{{ user.quiz5 }}%</td>
+                        <td>{{ user.quiz6 }}%</td>
+                        <td><button>View</button></td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+</section>
+</div>
+
+</body>
+
+</html>
+</span>
+{% endblock %}

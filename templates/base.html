@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Silent Math Genius | Free Online Courses</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="TemplateMo">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link href="static/img/online-education.png" rel="icon">
+  <!-- <link href="static/img/service-icon-01.png" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/fontawesome.css">
+  <link rel="stylesheet" href="static/css/templatemo-edu-meeting.css">
+  <link rel="stylesheet" href="static/css/owl.css">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="static/css/quiz.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+
+    <div class="container d-flex align-items-center">
+
+
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="static/img/icons/infinity.png" alt="" class="img-fluid"></a> -->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li class="dropdown"><a href="#"><span>Tajuk</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              {% if 'user_id' in session %}
+              <!-- Display user profile picture and name if logged in -->
+              <li><a href="/course-1">Cara Membaca Jam dan Mengejanya</a></li>
+              <li><a href="#">Pengukuran Asas</a></li>
+              <li><a href="/course-2">Penggunaan Wang</a></li>
+              {% else %}
+              <!-- Display login and signup buttons if not logged in -->
+              <li><a href="/login">Cara Membaca Jam dan Mengejanya</a></li>
+              <li><a href="#">Pengukuran Asas</a></li>
+              <li><a href="/login">Penggunaan Wang</a></li>
+              {% endif %}
+              <li><a href="#">Bahagi dan Darab</a></li>
+              <li><a href="#">Nilai Tempat Perpuluhan</a></li>
+              <li><a href="#">Matematik Pengguna</a></li>
+              <li><a href="#">Pemfaktoran dan Algebra</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-0">
+            <form action="" class="search-form">
+              <div class="form-group has-feedback">
+                <label for="search" class="sr-only">Search</label>
+                <input type="text" class="form-control" name="search" id="search" placeholder="Search for Course">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-md-offset-2">
+        <h1 class="logo"><a href="/">Silent Math Genius</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+
+          <li><a href="#contact">Contact</a></li>
+          {% if 'user_id' in session %}
+          <!-- Display user profile picture and name if logged in -->
+          <li>
+            <a href="/profile" style="margin-right: 60px;">
+              <img src="static/img/avatar-1.png" alt="Profile Picture" width="32" height="32">
+              {{ session['username'] }}
+            </a>
+          </li>
+          {% else %}
+          <!-- Display login and signup buttons if not logged in -->
+          <li><a href="/login">Log Masuk</a></li>
+          <li><a href="/signup">Daftar</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  {% block content %}
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Silent Math Genius</h3>
+            <p>
+              Kampung Sungai Putat <br>
+              75350 Malacca<br>
+              Malaysia <br><br>
+              <strong>Phone:</strong> +06 31743765<br>
+              <strong>Email:</strong> specialed.smktunmutahir@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Rumah User</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Kursus</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Polisi Silent Math</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Dasar Privasi</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Kursus Kami</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Cara Mambaca Jam dan Mengejanya</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Pengukuran Asas</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Penggunaan Wang</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Bahagi dan Darab</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Lain-Lain</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-badges">
+            <h4>Download Apps Kami</h4>
+            <!-- App Store Badge -->
+            <a href="https://apps.apple.com/app/idAPP_ID" target="_blank">
+              <img
+                src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+                alt="Download on the App Store" style="width: 150px; height: auto; display: block;">
+            </a>
+
+            <!-- Google Play Badge -->
+            <a href="https://play.google.com/store/apps/details?id=PACKAGE_NAME" target="_blank">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                alt="Get it on Google Play" style="width: 190px; height: auto; display: block; margin-left: -12px;">
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="language" style="color: #5e5e5e;">
+          Language
+          <div class="dropdown">
+            <button class="dropbtn">Bahasa Melayu</button>
+            <div class="dropdown-content">
+              <a href="#">English</a>
+              <!-- Add more language options as needed -->
+            </div>
+          </div>
+        </div>
+        <div class="copyright" style="color: #5e5e5e;">
+          &copy; 2023 Silent Math Genius
+          <a href="#">Term of use</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookies Notice</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <!-- <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+  <button class="open-btn" onclick="openChatWindow()"><i class="bi bi-chat-fill"></i>Chat</button>
+
+  <div class="chat-popup" id="chat-form-container">
+    <form action="#" class="form-container">
+      <div class="chat-window-head">
+        <h4><i class="bi bi-chat-fill"></i>Chat Window</h4>
+        <span class="close-btn" onclick="closeChatWindow()">
+          <i class="bi bi-x-circle"></i>
+        </span>
+      </div>
+
+      <div class="msg-container">
+        <div class="msg">
+          <P>Hey, how may i help you?</P>
+          <span>09:34pm</span>
+        </div>
+      </div>
+
+      <div class="chat-box-container">
+        <div class="chat-box">
+          <input type="text" placeholder="Type your message.." name="msg" required>
+          <button type="submit" class="btn"><i class="bi bi-send send-btn"></i></button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/js/isotope.min.js"></script>
+  <script src="static/js/owl-carousel.js"></script>
+  <script src="static/js/custom.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+<!-- <section class="attendance">
+    <div class="attendance-list">
+        <h1>Progress List</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Year</th>
+                    <th>Phone</th>
+                    <th>Bio</th>
+                    <th>Address</th>
+                    <th>Topic 1 Progress</th>
+                    <th>Topic 3 Progress</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                {% if user.role == 'user' %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.year }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.bio }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.progress1 }}</td>
+                    <td>{{ user.progress2 }}</td>
+                    <td><button>Edit</button></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</section> -->
+<section class="main">
+    <div class="main-top">
+        <h1>Student Profile</h1>
+        <i class="fas fa-user-cog"></i>
+    </div>
+    <div class="users">
+        {% for user in users %}
+        {% if user.role == 'user' %}
+        <div class="card">
+            <img src="static/img/avatar-1.png">
+            <h4>{{ user.username }}</h4>
+            <p>ID: {{ user.id }}</p>
+            <p>EMAIL: {{ user.email }}</p>
+            <p>YEAR: {{ user.year }}</p>
+            <p>PHONE: {{ user.phone }}</p>
+            <p>BIO: {{ user.bio }}</pp>
+            <p>ADDRESS: {{ user.address }}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
