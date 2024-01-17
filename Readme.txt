@@ -1,6 +1,1 @@
-Thanks for downloading this template!
-
-Template Name: Mentor
-Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+The Silent Math Genius project is a pioneering educational initiative, specifically designed for the benefit of deaf-mute and hearing-impaired students at KPKP SMK Tun Mutahir. The project focuses on two fundamental aspects of mathematical learning, which are time reading and telling and the use of money. 
