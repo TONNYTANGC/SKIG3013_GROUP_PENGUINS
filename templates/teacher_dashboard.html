@@ -7,6 +7,18 @@
         <h1>Silent Math Genius</h1>
         <i class="fas fa-user-cog"></i>
     </div>
+    <div class="users">
+        {% for user in users %}
+        {% if user.role == 'user' %}
+        <div class="card">
+            <img src="static/img/avatar-1.png">
+            <h4>{{ user.username }}</h4>
+            <p>{{ user.role }}</p>
+            <button>Profile</button>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
                                             
 
     <section class="attendance">
