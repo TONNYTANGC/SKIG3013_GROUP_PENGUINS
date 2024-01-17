@@ -1,1 +1,2 @@
 The Silent Math Genius project is a pioneering educational initiative, specifically designed for the benefit of deaf-mute and hearing-impaired students at KPKP SMK Tun Mutahir. The project focuses on two fundamental aspects of mathematical learning, which are time reading and telling and the use of money. 
+Create database "mathgenius" and import the mathgenius_accounts.sql and mathgenius_quiz.sql
