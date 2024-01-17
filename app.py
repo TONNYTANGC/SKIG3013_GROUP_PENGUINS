@@ -5,9 +5,9 @@ app = Flask(__name__)
 app.secret_key = "flash_message"
 
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'tonnytang01',
+    'host': 'your_host',
+    'user': 'your_user',
+    'password': 'your_password',
     'database': 'mathgenius',
     'port': 3306,
     'charset': 'utf8mb4',
