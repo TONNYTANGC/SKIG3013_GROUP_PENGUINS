@@ -127,6 +127,34 @@ def signup():
     # Handle validation errors and redirect back to the signup page if needed
     return render_template('signup.html')
 
+@app.route('/forget_pass', methods=['GET','POST'])
+def forget_pass():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        if password == confirm_password:
+           with connection_pool.get_connection() as connection:
+                cursor = connection.cursor()
+                # Check if the username exists
+                cursor.execute("SELECT * FROM accounts WHERE username = %s", (username,))
+                existing_user = cursor.fetchone()
+
+                if existing_user:
+                    # Update the password
+                    cursor.execute("UPDATE accounts SET password = %s WHERE username = %s", (password, username))
+                    connection.commit()
+
+                    # Flash a success message
+                    flash('Password changed successfully', 'success')
+                    return redirect(url_for('login'))
+
+        # Flash an error message if passwords don't match or if the username is not found
+        flash('Error changing password. Please check your username / password and try again.', 'error')
+
+    return render_template('forget_pass.html')
+    
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if request.method == 'POST':
