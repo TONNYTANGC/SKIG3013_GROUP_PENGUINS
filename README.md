@@ -8,7 +8,7 @@ Sign Up Page
 ![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/f375b5b6-a0ee-4757-8a68-c42a93adf08b)
 
 Forget Password
-![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/b555d040-00c1-426d-9089-f7034c25f1f3)
+![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/3b80557f-cb55-4761-9b6c-a502e80fdd2f)
 
 Profile Page
 ![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/18c3b9a4-1298-44f5-8484-d87de03ad5a6)
