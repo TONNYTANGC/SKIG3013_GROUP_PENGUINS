@@ -2,9 +2,9 @@ import mysql.connector
 
 try:
     connection = mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='William@2852',
+        host='your_host',
+        user='your_user',
+        password='your_password',
         database='mathGenius'
     )
     print("MySQL connection successful.")
