@@ -21,8 +21,8 @@ Course Page
 ![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/e72b1ec0-179c-4411-95ce-fd6abcd5575f)
 
 Teacher Dashboard
-![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/cd72b918-bbea-41e2-8e5c-79931c81c7d3)
-![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/29bd670e-f420-4036-ac19-d3397cf7b5a7)
-![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/142db0e6-bdfd-4d1e-a2d9-8fb8cbfb3af1)
+![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/31bc32d4-5542-45db-98c6-04acc0000862)
+![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/eadf06f8-c056-4020-ab45-4e419397dd9d)
+![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/d167f5b7-075d-4448-aa7c-55cda70d02b1)
 ![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/6dde86a6-749a-4cc0-b4ab-82eb42843272)
 
