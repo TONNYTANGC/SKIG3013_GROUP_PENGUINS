@@ -24,3 +24,5 @@ Teacher Dashboard
 ![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/cd72b918-bbea-41e2-8e5c-79931c81c7d3)
 ![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/29bd670e-f420-4036-ac19-d3397cf7b5a7)
 ![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/142db0e6-bdfd-4d1e-a2d9-8fb8cbfb3af1)
+![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/6dde86a6-749a-4cc0-b4ab-82eb42843272)
+
