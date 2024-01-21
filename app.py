@@ -5,9 +5,9 @@ app = Flask(__name__)
 app.secret_key = "flash_message"
 
 db_config = {
-    'host': 'your_host',
-    'user': 'your_user',
-    'password': 'your_password',
+    'host': 'localhost',
+    'user': 'root',
+    'password': 'tonnytang01',
     'database': 'mathgenius',
     'port': 3306,
     'charset': 'utf8mb4',
@@ -154,7 +154,7 @@ def forget_pass():
         flash('Error changing password. Please check your username / password and try again.', 'error')
 
     return render_template('forget_pass.html')
-    
+
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if request.method == 'POST':
@@ -331,6 +331,68 @@ def teacher_progress():
     except Exception as e:
         print(f"Error retrieving user data: {str(e)}")
         return render_template('teacher_progress.html', exception=str(e))
+    
+
+@app.route('/teacher_quiz', methods=['GET', 'POST'])
+def teacher_quiz():
+    try:
+        if request.method == 'POST':
+            # Check if the form submission is for updating a question
+            if 'update_question' in request.form:
+                quiz_id = int(request.form['update_question'])
+                updated_question = {
+                    'lesson': request.form.get('lesson'),
+                    'subtopic': request.form.get('subtopic'),
+                    'question': request.form.get('question'),
+                    'srcQuestion': request.form.get('srcQuestion'),
+                    'optionA': request.form.get('optionA'),
+                    'optionB': request.form.get('optionB'),
+                    'optionC': request.form.get('optionC'),
+                    'optionD': request.form.get('optionD'),
+                    'correctOption': request.form.get('correctOption')
+                }
+
+                update_quiz_in_database(quiz_id, updated_question)
+
+                flash('Question successfully updated', 'success')
+                return redirect(url_for('teacher_quiz'))
+
+        # If it's a GET request or not a question update, display the quiz list
+        quizs = get_quiz_list_from_database()
+        return render_template('teacher_quiz.html', quizs=quizs)
+
+    except Exception as e:
+        print(f"Error retrieving/updating quiz data: {str(e)}")
+        flash('An error occurred while processing your request', 'error')
+        return render_template('teacher_quiz.html', exception=str(e))
+
+def update_quiz_in_database(quiz_id, updated_question):
+    with connection_pool.get_connection() as connection:
+        cursor = connection.cursor()
+
+        update_query = """
+            UPDATE quiz
+            SET question=%(question)s, optionA=%(optionA)s, optionB=%(optionB)s, optionC=%(optionC)s, optionD=%(optionD)s, correctOption=%(correctOption)s
+            WHERE id=%(quiz_id)s
+        """
+        cursor.execute(update_query, {'quiz_id': quiz_id, **updated_question})
+        connection.commit()
+
+        cursor.close()
+
+def get_quiz_list_from_database():
+    with connection_pool.get_connection() as connection:
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM quiz")
+
+        quiz_tuples = cursor.fetchall()
+        quizs = [{'id': quiz[0], 'lesson': quiz[1], 'subtopic': quiz[2], 'question': quiz[3],
+                  'srcQuestion': quiz[4], 'optionA': quiz[5], 'optionB': quiz[6],
+                  'optionC': quiz[7], 'optionD': quiz[8], 'correctOption': quiz[9]} for quiz in quiz_tuples]
+
+        cursor.close()
+
+    return quizs
 
 @app.route('/logout')
 def logout():
