@@ -1,0 +1,77 @@
+{% extends "teacher_base.html" %}
+{% block content %}
+<section class="attendance">
+    <div class="attendance-list">
+        <h1>Quiz Bank</h1>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for lesson..">
+        <form method="post" action="/teacher_quiz">
+            <table class="table" id="myTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Lesson</th>
+                        <th>Subtopic</th>
+                        <th>Question</th>
+                        <th>Media</th>
+                        <th>OptionA</th>
+                        <th>OptionB</th>
+                        <th>OptionC</th>
+                        <th>OptionD</th>
+                        <th>Correct Option</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for quiz in quizs %}
+                    <tr>
+                        <td>{{ quiz.id }}</td>
+                        <td>{{ quiz.lesson }}</td>
+                        <td>{{ quiz.subtopic }}</td>
+                        <td><input type="text" name="question" value="{{ quiz.question }}"></td>
+                        {% if quiz.srcQuestion %}
+                        <td><img src="{{ quiz.srcQuestion }}" alt="Question Image" width="50" height="50"></td>
+                        {% else %}
+                        <td></td>
+                        {% endif %}
+                        <td><input type="text" name="optionA" value="{{ quiz.optionA }}"></td>
+                        <td><input type="text" name="optionB" value="{{ quiz.optionB }}"></td>
+                        <td><input type="text" name="optionC" value="{{ quiz.optionC }}"></td>
+                        <td><input type="text" name="optionD" value="{{ quiz.optionD }}"></td>
+                        <td><input type="text" name="correctOption" value="{{ quiz.correctOption }}"></td>
+                        <td>
+                            <input type="hidden" name="update_question" value="{{ quiz.id }}">
+                            <button type="submit" class="btn btn-info">Edit</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+        <script>
+            function myFunction() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
+    </div>
+</section>
+
+
+{% endblock %}
