@@ -7,7 +7,7 @@ app.secret_key = "flash_message"
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'tonnytang01',
+    'password': 'your_password',
     'database': 'mathgenius',
     'port': 3306,
     'charset': 'utf8mb4',
