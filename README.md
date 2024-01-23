@@ -1,5 +1,5 @@
 **Index Page**
-![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/fb9ea179-2906-4707-be54-009273690e7c)
+![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/9fee52ae-394c-4ca9-a6ee-98121c56d54d)
 
 **Log In Page** 
 ![image](https://github.com/TONNYTANGC/SKIG3013_GROUP_PENGUINS/assets/96461132/b2205e22-bd70-4748-ac96-2a573a6033a2)
